@@ -8,6 +8,12 @@ env:
   es2022: true
   browser: true
 
+rules:
+  quotes: [1, "double", "avoid-escape"]
+  no-unused-vars: warn
+  no-console: off
+  no-trailing-spaces: off
+
 globals:
   noUiSlider: readonly
   Pristine: readonly
