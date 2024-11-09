@@ -38,3 +38,21 @@ function extractNumber(value) {
 
   return parseInt(result, 10);
 }
+
+function isMeetingTimeCorrect(dayStartTime, dayEndTime, meetingStartTime, meetingLastMinutes) {
+  const convertTimeToMinutes = (time) => {
+    const [hours, minutes] = time.split(":");
+
+    return parseInt(hours, 10) * 60 + parseInt(minutes, 10);
+  };
+
+  const dayStartMinutes = convertTimeToMinutes(dayStartTime);
+  const dayEndMinutes = convertTimeToMinutes(dayEndTime);
+  const meetingStartMinutes = convertTimeToMinutes(meetingStartTime);
+
+  if (Number.isNaN(dayEndMinutes) || Number.isNaN(dayStartMinutes) || Number.isNaN(meetingStartMinutes)) {
+    return false;
+  }
+
+  return dayStartMinutes <= meetingStartMinutes && meetingStartMinutes + meetingLastMinutes <= dayEndMinutes;
+}
