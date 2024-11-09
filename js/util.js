@@ -1,4 +1,4 @@
-import {MAX_PHOTOS_COUNT, MAX_COMMENTS_COUNT} from "../constants/data.js";
+import {MAX_PICTURES_COUNT, MAX_COMMENTS_COUNT} from "../constants/data.js";
 
 export function getRandomInteger(min, max) {
   const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
@@ -24,6 +24,6 @@ function createRandomIdFromRangeGenerator(min, max) {
   };
 }
 
-export const generatePhotoId = createRandomIdFromRangeGenerator(1, MAX_PHOTOS_COUNT);
+export const generatePictureId = createRandomIdFromRangeGenerator(1, MAX_PICTURES_COUNT);
 export const generateCommentId = createRandomIdFromRangeGenerator(1, MAX_COMMENTS_COUNT);
 export const getRandomArrayItem = (array) => array[getRandomInteger(0, array.length - 1)];

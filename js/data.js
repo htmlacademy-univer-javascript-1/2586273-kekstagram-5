@@ -1,10 +1,10 @@
-import {getRandomArrayItem, getRandomInteger, generateCommentId, generatePhotoId} from "./util.js";
+import {getRandomArrayItem, getRandomInteger, generateCommentId, generatePictureId} from "./util.js";
 import {
-  photoDescriptions,
+  pictureDescriptions,
   commentMessages,
   commenterNames,
   MAX_COMMENTS_COUNT,
-  MAX_PHOTOS_COUNT
+  MAX_PICTURES_COUNT
 } from "../constants/data.js";
 
 function generateCommentData() {
@@ -16,20 +16,20 @@ function generateCommentData() {
   };
 }
 
-function generatePhotoData() {
-  const id = generatePhotoId();
+function generatePictureData() {
+  const id = generatePictureId();
 
   const comments = Array.from({length: getRandomInteger(0, MAX_COMMENTS_COUNT)}, generateCommentData);
 
   return {
     id,
     url: `photos/${id}.jpg`,
-    description: getRandomArrayItem(photoDescriptions),
+    description: getRandomArrayItem(pictureDescriptions),
     likes: getRandomInteger(15, 200),
     comments
   };
 }
 
 export function generateData() {
-  return Array.from({length: MAX_PHOTOS_COUNT}, generatePhotoData);
+  return Array.from({length: MAX_PICTURES_COUNT}, generatePictureData);
 }
