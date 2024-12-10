@@ -33,3 +33,5 @@ function generatePictureData() {
 export function generateData() {
   return Array.from({length: MAX_PICTURES_COUNT}, generatePictureData);
 }
+
+// console.log(generateData());

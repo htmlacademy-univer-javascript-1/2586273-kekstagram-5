@@ -11,8 +11,7 @@ env:
 rules:
   quotes: [1, "double", "avoid-escape"]
   no-unused-vars: warn
-  no-console: off
-  no-trailing-spaces: off
+  no-console: warn
 
 globals:
   noUiSlider: readonly
