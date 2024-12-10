@@ -22,7 +22,7 @@ function isPalindrome(string) {
   return true;
 }
 
-function extractNumber(value) {
+export function extractNumber(value) {
   if (typeof value !== "string") {
     value = value.toString();
   }
@@ -36,7 +36,7 @@ function extractNumber(value) {
     }
   }
 
-  return parseInt(result, 10);
+  return parseInt (result, 10);
 }
 
 function isMeetingTimeCorrect(dayStartTime, dayEndTime, meetingStartTime, meetingLastMinutes) {

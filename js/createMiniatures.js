@@ -1,9 +1,8 @@
-import {generateData} from "./data.js";
-
 function createPictureElement(pictureData, template) {
-  const {url, description, likes, comments} = pictureData;
+  const {id, url, description, likes, comments} = pictureData;
   const newPictureElement = template.cloneNode(true);
 
+  newPictureElement.dataset.pictureId = id;
   const imgElement = newPictureElement.querySelector("img.picture__img");
   imgElement.src = url;
   imgElement.alt = description;
@@ -12,7 +11,7 @@ function createPictureElement(pictureData, template) {
   return newPictureElement;
 }
 
-function createPicturesCollection(picturesData) {
+export function createMiniatures(picturesData) {
   const template = document.querySelector("template#picture").content.querySelector("a");
   const fragment = document.createDocumentFragment();
 
@@ -23,12 +22,3 @@ function createPicturesCollection(picturesData) {
 
   return fragment;
 }
-
-function renderPicturesCollection(picturesData) {
-  const fragment = createPicturesCollection(picturesData);
-  document.querySelector("section.pictures").appendChild(fragment);
-}
-
-renderPicturesCollection(generateData());
-
-
